@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rehmat Construction - Professional Building Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #ffd700;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #ffd700;
+    }
+
+    .mobile-menu {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23654321" width="1200" height="600"/><polygon fill="%23333" points="100,200 300,100 500,150 700,80 900,120 1100,100 1200,120 1200,600 0,600"/><rect fill="%23444" x="200" y="250" width="80" height="150"/><rect fill="%23555" x="400" y="200" width="100" height="200"/><rect fill="%23444" x="600" y="180" width="90" height="220"/><rect fill="%23666" x="800" y="220" width="70" height="180"/></svg>');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: white;
+        margin-top: 80px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-content p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: #ffd700;
+        color: #333;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: all 0.3s;
+        animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    .cta-button:hover {
+        background: #ffed4e;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+    }
+
+    /* Sections */
+    .section {
+        padding: 80px 0;
+        display: none;
+    }
+
+    .section.active {
+        display: block;
+    }
+
+    .section h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #1e3c72;
+    }
+
+    /* Services Grid */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .service-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .service-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Projects Gallery */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .project-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .project-image {
+        height: 200px;
+        background: linear-gradient(45deg, #ddd, #bbb);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 1.2rem;
+    }
+
+    .project-info {
+        padding: 1.5rem;
+    }
+
+    /* Quote Form */
+    .quote-form {
+        background: white;
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #1e3c72;
+        font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #1e3c72;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    /* Team Grid */
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .team-member {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .team-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #1e3c72, #2a5298);
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .testimonial {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        position: relative;
+    }
+
+    .testimonial::before {
+        content: '"';
+        font-size: 4rem;
+        color: #ffd700;
+        position: absolute;
+        top: -10px;
+        left: 20px;
+    }
+
+    /* Contact Info */
+    .contact-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .contact-item {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .contact-icon {
+        font-size: 2.5rem;
+        color: #1e3c72;
+        margin-bottom: 1rem;
+    }
+
+    /* Floating Elements */
+    .floating-contact {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #ffd700;
+        color: #333;
+        padding: 15px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+    }
+
+    .floating-contact:hover {
+        background: #ffed4e;
+        transform: translateY(-2px);
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+    }
+
+    .dark-mode .section {
+        background-color: #1a1a1a;
+    }
+
+    .dark-mode .service-card,
+    .dark-mode .project-card,
+    .dark-mode .quote-form,
+    .dark-mode .team-member,
+    .dark-mode .testimonial,
+    .dark-mode .contact-item {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+    }
+
+    .dark-mode-toggle {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: #333;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        
+        .mobile-menu {
+            display: block;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+        
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🏗️ Rehmat Construction</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')">🏠 Home</a></li>
+                <li><a href="#" onclick="showSection('services')">🏗️ Services</a></li>
+                <li><a href="#" onclick="showSection('projects')">🧰 Projects</a></li>
+                <li><a href="#" onclick="showSection('quote')">🧾 Get Quote</a></li>
+                <li><a href="#" onclick="showSection('about')">🧑‍💼 About</a></li>
+                <li><a href="#" onclick="showSection('testimonials')">⭐ Reviews</a></li>
+                <li><a href="#" onclick="showSection('blog')">📰 Blog</a></li>
+                <li><a href="#" onclick="showSection('contact')">📞 Contact</a></li>
+            </ul>
+            <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+        </nav>
+    </header>
+
+```
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Building Dreams Into Reality</h1>
+            <p>Professional Construction Services with Kuldeep Singh - Your Trusted Partner in Quality Construction</p>
+            <a href="#" class="cta-button" onclick="showSection('quote')">Get Free Quote</a>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section" id="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Residential Construction</h3>
+                <p>Custom homes, luxury residences, and residential developments built to your specifications.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Commercial Construction</h3>
+                <p>Office buildings, retail spaces, and industrial facilities with modern design and functionality.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔨</div>
+                <h3>Renovations & Extensions</h3>
+                <p>Transform your existing space with our expert renovation and extension services.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Groundworks & Foundations</h3>
+                <p>Solid foundations and groundworks that ensure your project's long-term stability.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Roofing & Exterior</h3>
+                <p>Professional roofing services and exterior works to protect and enhance your property.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Electrical & Plumbing</h3>
+                <p>Complete electrical and plumbing solutions integrated into your construction project.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="section" id="projects">
+    <div class="container">
+        <h2>Our Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">Modern Villa Project</div>
+                <div class="project-info">
+                    <h3>Luxury Modern Villa</h3>
+                    <p>A stunning 4-bedroom modern villa with contemporary design and smart home features.</p>
+                    <strong>Status: Completed</strong>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">Office Complex</div>
+                <div class="project-info">
+                    <h3>City Office Complex</h3>
+                    <p>5-story commercial building with modern amenities and sustainable design features.</p>
+                    <strong>Status: In Progress</strong>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">Residential Extension</div>
+                <div class="project-info">
+                    <h3>Victorian House Extension</h3>
+                    <p>Seamless extension to a Victorian property, blending traditional and modern elements.</p>
+                    <strong>Status: Completed</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quote Section -->
+<section class="section" id="quote">
+    <div class="container">
+        <h2>Get Your Free Quote</h2>
+        <form class="quote-form" onsubmit="handleQuoteSubmit(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="project-type">Project Type *</label>
+                    <select id="project-type" name="project-type" required>
+                        <option value="">Select Project Type</option>
+                        <option value="residential">Residential Construction</option>
+                        <option value="commercial">Commercial Construction</option>
+                        <option value="renovation">Renovation/Extension</option>
+                        <option value="groundworks">Groundworks</option>
+                        <option value="roofing">Roofing</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="budget">Budget Range</label>
+                    <select id="budget" name="budget">
+                        <option value="">Select Budget</option>
+                        <option value="under-50k">Under £50,000</option>
+                        <option value="50k-100k">£50,000 - £100,000</option>
+                        <option value="100k-250k">£100,000 - £250,000</option>
+                        <option value="250k-500k">£250,000 - £500,000</option>
+                        <option value="over-500k">Over £500,000</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="timeline">Project Timeline</label>
+                    <select id="timeline" name="timeline">
+                        <option value="">Select Timeline</option>
+                        <option value="asap">ASAP</option>
+                        <option value="1-3months">1-3 Months</option>
+                        <option value="3-6months">3-6 Months</option>
+                        <option value="6-12months">6-12 Months</option>
+                        <option value="flexible">Flexible</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Project Description *</label>
+                <textarea id="description" name="description" rows="4" placeholder="Please describe your project in detail..." required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="files">Upload Files (blueprints, images, etc.)</label>
+                <input type="file" id="files" name="files" multiple accept="image/*,.pdf,.dwg">
+            </div>
+            <button type="submit" class="cta-button">Request Free Quote</button>
+        </form>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section" id="about">
+    <div class="container">
+        <h2>About Rehmat Construction</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">
+            Led by proprietor Kuldeep Singh, Rehmat Construction has established itself as a trusted construction company in Southall and the surrounding areas. We pride ourselves on delivering exceptional quality, innovative solutions, and unparalleled customer service to all our clients.
+        </p>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-avatar">👷</div>
+                <h3>Kuldeep Singh</h3>
+                <p><strong>Proprietor & Managing Director</strong></p>
+                <p>Experienced construction professional dedicated to delivering quality projects with integrity and excellence.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-avatar">👩‍🏗️</div>
+                <h3>Our Design Team</h3>
+                <p><strong>Architectural Specialists</strong></p>
+                <p>Expert team focused on creating innovative and sustainable design solutions for every project.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-avatar">🏗️</div>
+                <h3>Construction Team</h3>
+                <p><strong>Skilled Craftsmen</strong></p>
+                <p>Experienced professionals committed to delivering exceptional workmanship and project excellence.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section" id="testimonials">
+    <div class="container">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <p>BuildCraft transformed our vision into reality. The attention to detail and quality of work exceeded our expectations. Highly recommended!</p>
+                <h4>- Emma Thompson</h4>
+                <p>Luxury Villa Project</p>
+            </div>
+            <div class="testimonial">
+                <p>Professional, reliable, and delivered on time. The team was fantastic throughout the entire commercial project.</p>
+                <h4>- David Wilson</h4>
+                <p>Office Complex Development</p>
+            </div>
+            <div class="testimonial">
+                <p>Excellent communication and craftsmanship. Our house extension was completed seamlessly with minimal disruption.</p>
+                <h4>- Lisa Anderson</h4>
+                <p>Residential Extension</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section class="section" id="blog">
+    <div class="container">
+        <h2>Latest News & Tips</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">Construction Tips</div>
+                <div class="project-info">
+                    <h3>10 Essential Tips for Home Construction</h3>
+                    <p>Key considerations when planning your dream home construction project.</p>
+                    <small>Published: June 15, 2025</small>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">Industry Update</div>
+                <div class="project-info">
+                    <h3>Sustainable Building Practices</h3>
+                    <p>How modern construction is embracing eco-friendly materials and methods.</p>
+                    <small>Published: June 10, 2025</small>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">Behind the Scenes</div>
+                <div class="project-info">
+                    <h3>Progress Update: City Office Complex</h3>
+                    <p>Behind-the-scenes look at our current commercial construction project.</p>
+                    <small>Published: June 8, 2025</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section" id="contact">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <h3>Phone</h3>
+                <p>07405 399143</p>
+                <p>Available for consultations and quotes</p>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <h3>Email</h3>
+                <p>info@rehmatconstruction.co.uk</p>
+                <p>quotes@rehmatconstruction.co.uk</p>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <h3>Address</h3>
+                <p>4 Argyll Avenue</p>
+                <p>Southall, UB1 3AS</p>
+                <p>United Kingdom</p>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🕒</div>
+                <h3>Hours</h3>
+                <p>Mon-Fri: 8AM-6PM</p>
+                <p>Sat: 9AM-4PM</p>
+                <p>Sun: By Appointment</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Floating Elements -->
+<a href="#" class="floating-contact" onclick="showSection('contact')">📞 Contact Us</a>
+<button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+
+<script>
+    // Navigation
+    function showSection(sectionId) {
+        // Hide all sections
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => section.classList.remove('active'));
+        
+        // Hide hero
+        const hero = document.getElementById('home');
+        hero.style.display = 'none';
+        
+        // Show selected section
+        if (sectionId === 'home') {
+            hero.style.display = 'flex';
+        } else {
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }
+
+    // Quote form submission
+    function handleQuoteSubmit(event) {
+        event.preventDefault();
+        alert('Thank you for your quote request! We will contact you within 24 hours.');
+    }
+
+    // Dark mode toggle
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const button = document.querySelector('.dark-mode-toggle');
+        button.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show home section by default
+        showSection('home');
+        
+        // Add smooth scrolling for all navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+            });
+        });
+    });
+</script>
+```
+
+</body>
+</html>
